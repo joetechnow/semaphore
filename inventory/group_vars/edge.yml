@@ -1,0 +1,16 @@
+---
+vars_files:
+- /home/sysadmin/ansible/vault.yml
+- /home/sysadmin/ansible/edge.yml
+
+ansible_password_file: /home/sysadmin/ansible/edge.yml
+ansible_network_os: edgeos
+become_method: enable
+#ansible_user: azuresysadmin
+ansible_user: ubnt
+ansible_password: "{{ edge }}"
+ansible_become_password: "{{ edge }}"
+ansible_connection: network_cli
+wp_variable: "{{ egde }}"
+#ansible_become_user: azuresysadmin
+ansible_become_user: ubnt

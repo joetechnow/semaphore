@@ -1,0 +1,20 @@
+---
+#- hosts: me
+- hosts: edge
+  ignore_errors: yes
+  gather_facts: yes
+  vars_files:
+#    - /home/sysadmin/ansible/vault.yml
+    - /home/sysadmin/ansible/edge.yml
+  environment:
+    ANSIBLE_DEBUG: "1"
+  tasks:
+
+#  - name: win_ping Ansible Playbook
+#    win_ping:
+
+  - name: ping net device
+    ansible.netcommon.net_ping:
+  - name: debug
+    debug:
+      var: ansible_failed_result
